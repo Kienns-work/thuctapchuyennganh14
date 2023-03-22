@@ -1,8 +1,12 @@
+import 'dart:async';
+
 import 'package:bookinghotel/core/constants/colors_constants.dart';
 import 'package:bookinghotel/core/constants/dimension_constants.dart';
 import 'package:bookinghotel/core/constants/textstyle_constants.dart';
 import 'package:bookinghotel/core/data/data_intro.dart';
 import 'package:bookinghotel/core/helpers/asset_helper.dart';
+import 'package:bookinghotel/representation/screens/main_screen.dart';
+import 'package:bookinghotel/representation/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -21,6 +25,17 @@ class IntroScreen extends StatefulWidget {
 
 class _IntroScreenState extends State<IntroScreen> {
   final PageController _pageController = PageController();
+  final StreamController<int> _pageStreamController =
+      StreamController<int>.broadcast();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _pageController.addListener(() {
+      _pageStreamController.add(_pageController.page!.toInt());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,17 +56,45 @@ class _IntroScreenState extends State<IntroScreen> {
           Positioned(
             left: kDefaultPadding,
             bottom: kDefaultPadding * 3,
+            right: kDefaultPadding,
             child: Row(
               children: [
-                SmoothPageIndicator(
-                  effect: const ExpandingDotsEffect(
-                    dotWidth: 5,
-                    dotHeight: 5,
-                    activeDotColor: ColorPlette.primaryColor,
+                Expanded(
+                  flex: 5,
+                  child: SmoothPageIndicator(
+                    effect: const ExpandingDotsEffect(
+                      dotWidth: 5,
+                      dotHeight: 5,
+                      activeDotColor: ColorPlette.primaryColor,
+                    ),
+                    controller: _pageController,
+                    count: 3,
                   ),
-                  controller: _pageController,
-                  count: 3,
-                )
+                ),
+                StreamBuilder<int>(
+                    initialData: 0,
+                    stream: _pageStreamController.stream,
+                    builder: (context, snapshot) {
+                      return Expanded(
+                        flex: 5,
+                        child: ButtonWidget(
+                          title: snapshot.data != 2 ? "Next" : "Get Started",
+                          ontap: () => {
+                            if (_pageController.page != 2)
+                              {
+                                _pageController.nextPage(
+                                    duration: const Duration(milliseconds: 500),
+                                    curve: Curves.easeOutExpo)
+                              }
+                            else
+                              {
+                                Navigator.of(context)
+                                    .pushNamed(MainScreen.routeName)
+                              }
+                          },
+                        ),
+                      );
+                    })
               ],
             ),
           )

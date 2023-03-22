@@ -29,6 +29,10 @@ extension ExtendedTextStyle on TextStyle {
     return copyWith(fontWeight: FontWeight.w400);
   }
 
+  TextStyle get bold {
+    return copyWith(fontWeight: FontWeight.bold);
+  }
+
   TextStyle get italic {
     return copyWith(
       fontWeight: FontWeight.normal,
