@@ -1,3 +1,4 @@
+import 'package:bookinghotel/core/constants/textstyle_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -9,8 +10,11 @@ class ButtonWidget extends StatelessWidget {
   final Function? ontap;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Text("Hello"),
+    return Container(
+      child: Text(
+        title,
+        style: TextStyles.defaultStyle,
+      ),
     );
   }
 }

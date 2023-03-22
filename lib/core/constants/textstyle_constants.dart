@@ -9,9 +9,8 @@ class TextStyles {
 
   static const TextStyle defaultStyle = TextStyle(
     color: ColorPlette.textColor,
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: FontWeight.w400,
-    height: 16 / 14,
   );
 
   static TextStyle introTitleStyle = GoogleFonts.fasthand(
