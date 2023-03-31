@@ -1,5 +1,7 @@
 import 'package:bookinghotel/core/helpers/asset_helper.dart';
 import 'package:bookinghotel/core/helpers/image_helper.dart';
+import 'package:bookinghotel/core/helpers/local_storage_helper.dart';
+import 'package:bookinghotel/representation/screens/main_screen.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
@@ -23,9 +25,16 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void redirectIntroScreen() async {
+    final ignoreIntroScreen =
+        localStorageHelper.getValue('ignoreIntroScreen') as bool?;
     await Future.delayed(const Duration(seconds: 2));
     // ignore: use_build_context_synchronously
-    Navigator.of(context).pushNamed(IntroScreen.routeName);
+    if (ignoreIntroScreen != null && ignoreIntroScreen) {
+      Navigator.of(context).pushNamed(MainScreen.routeName);
+    } else {
+      localStorageHelper.setValue('ignoreIntroScreen', true);
+      Navigator.of(context).pushNamed(IntroScreen.routeName);
+    }
   }
 
   @override

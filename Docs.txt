@@ -1,0 +1,2 @@
+- Singleton: Sử dụng để đảm bảo rằng một lớp chỉ có duy nhất một instance trong suốt quá trình chạy của ứng dụng. Điều này giúp đảm bảo rằng tất cả các đối tượng khác đều sử dụng cùng một thể hiện đó, tránh được sự lãng phí tài nguyên và xung đột dữ liệu.
+
