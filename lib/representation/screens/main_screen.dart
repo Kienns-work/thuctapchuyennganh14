@@ -1,4 +1,10 @@
+import 'package:bookinghotel/core/constants/colors_constants.dart';
+import 'package:bookinghotel/core/constants/dimension_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+
+import 'home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -8,10 +14,56 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("MainApp"),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: IndexedStack(
+        index: _currentIndex,
+        children: [
+          HomeScreen(),
+          Container(
+            color: Colors.greenAccent,
+          ),
+          Container(
+            color: Colors.redAccent,
+          ),
+          Container(
+            color: Colors.lightBlue,
+          ),
+        ],
+      ),
+      bottomNavigationBar: SalomonBottomBar(
+        currentIndex: _currentIndex,
+        onTap: (index) => {
+          setState(() => {
+                _currentIndex = index,
+              })
+        },
+        items: [
+          SalomonBottomBarItem(
+            icon: Icon(FontAwesomeIcons.house),
+            title: Text("Home"),
+          ),
+          SalomonBottomBarItem(
+            icon: Icon(FontAwesomeIcons.solidHeart),
+            title: Text("Home"),
+          ),
+          SalomonBottomBarItem(
+            icon: Icon(FontAwesomeIcons.briefcase),
+            title: Text("Home"),
+          ),
+          SalomonBottomBarItem(
+            icon: Icon(FontAwesomeIcons.solidUser),
+            title: Text("Home"),
+          ),
+        ],
+        selectedItemColor: ColorPlette.primaryColor,
+        unselectedItemColor: ColorPlette.primaryColor.withOpacity(0.2),
+        margin: EdgeInsets.symmetric(
+            horizontal: kDefaultPadding, vertical: kDefaultPadding),
+      ),
     );
   }
 }
