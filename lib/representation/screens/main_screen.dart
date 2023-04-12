@@ -59,8 +59,8 @@ class _MainScreenState extends State<MainScreen> {
             title: Text("Home"),
           ),
         ],
-        selectedItemColor: ColorPlette.primaryColor,
-        unselectedItemColor: ColorPlette.primaryColor.withOpacity(0.2),
+        selectedItemColor: ColorPalette.primaryColor,
+        unselectedItemColor: ColorPalette.primaryColor.withOpacity(0.2),
         margin: EdgeInsets.symmetric(
             horizontal: kDefaultPadding, vertical: kDefaultPadding),
       ),

@@ -65,7 +65,7 @@ class _IntroScreenState extends State<IntroScreen> {
                     effect: const ExpandingDotsEffect(
                       dotWidth: 5,
                       dotHeight: 5,
-                      activeDotColor: ColorPlette.primaryColor,
+                      activeDotColor: ColorPalette.primaryColor,
                     ),
                     controller: _pageController,
                     count: 3,
@@ -113,7 +113,7 @@ Widget buildItemIntroScreen(Widget image, String title, String description,
         child: Container(
           height: 500,
           decoration: const BoxDecoration(
-            color: ColorPlette.primaryColor,
+            color: ColorPalette.primaryColor,
           ),
           child: image,
         ),

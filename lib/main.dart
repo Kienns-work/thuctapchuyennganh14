@@ -21,7 +21,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: "Booking Hotel",
       theme: ThemeData(
-        primaryColor: ColorPlette.primaryColor,
+        primaryColor: ColorPalette.primaryColor,
       ),
       routes: routes,
       debugShowCheckedModeBanner: false,

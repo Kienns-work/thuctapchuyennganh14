@@ -8,13 +8,13 @@ class TextStyles {
   TextStyles(this.context);
 
   static const TextStyle defaultStyle = TextStyle(
-    color: ColorPlette.textColor,
+    color: ColorPalette.textColor,
     fontSize: 20,
     fontWeight: FontWeight.w400,
   );
 
   static TextStyle introTitleStyle = GoogleFonts.fasthand(
-    color: ColorPlette.primaryColor,
+    color: ColorPalette.primaryColor,
     fontWeight: FontWeight.bold,
     fontSize: 40,
   );
@@ -41,7 +41,7 @@ extension ExtendedTextStyle on TextStyle {
   }
 
   TextStyle get primaryTextColor {
-    return copyWith(color: ColorPlette.primaryColor);
+    return copyWith(color: ColorPalette.primaryColor);
   }
 
   TextStyle get whiteTextColor {
