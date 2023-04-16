@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:bookinghotel/core/constants/colors_constants.dart';
 import 'package:bookinghotel/core/constants/dimension_constants.dart';
 import 'package:bookinghotel/core/constants/textstyle_constants.dart';
@@ -13,8 +15,9 @@ class ButtonWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => ontap(),
       child: Container(
+        width: double.infinity,
         padding: const EdgeInsets.symmetric(
-            vertical: kMediumPadding / 3, horizontal: kMediumPadding),
+            vertical: kMediumPadding / 2, horizontal: kMediumPadding),
         decoration: BoxDecoration(
           color: ColorPalette.primaryColor,
           borderRadius: BorderRadius.circular(20),

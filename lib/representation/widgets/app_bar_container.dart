@@ -10,7 +10,7 @@ class AppBarContainerWidget extends StatelessWidget {
     super.key,
     required this.child,
     this.title,
-    this.implementLeading = false,
+    this.implementLeading = true,
     this.implementTraling = false,
     required this.titleString,
   });
@@ -36,18 +36,21 @@ class AppBarContainerWidget extends StatelessWidget {
               title: title ??
                   Row(children: [
                     if (implementLeading)
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(12),
+                      GestureDetector(
+                        onTap: () => Navigator.of(context).pop(),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(12),
+                            ),
                           ),
-                        ),
-                        padding: EdgeInsets.all(5),
-                        child: Icon(
-                          FontAwesomeIcons.arrowLeft,
-                          color: ColorPalette.primaryColor,
-                          size: 24,
+                          padding: EdgeInsets.all(5),
+                          child: Icon(
+                            FontAwesomeIcons.arrowLeft,
+                            color: ColorPalette.primaryColor,
+                            size: 24,
+                          ),
                         ),
                       ),
                     Expanded(

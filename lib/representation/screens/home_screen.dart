@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../core/data/destinations_data.dart';
+import 'hotel_booking_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,7 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildItemCategory(
       IconData icon, Color color, Function onTap, String title) {
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: () =>
+          {Navigator.of(context).pushNamed(HotelBookingScreen.routeName)},
       child: Container(
         width: double.infinity,
         padding: EdgeInsets.symmetric(vertical: kDefaultPadding),
