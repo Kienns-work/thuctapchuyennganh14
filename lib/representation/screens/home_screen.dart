@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       IconData icon, Color color, Function onTap, String title) {
     return GestureDetector(
       onTap: () =>
-          {Navigator.of(context).pushNamed(HotelBookingScreen.routeName)},
+          Navigator.of(context).pushNamed(HotelBookingScreen.routeName),
       child: Container(
         width: double.infinity,
         padding: EdgeInsets.symmetric(vertical: kDefaultPadding),

@@ -1,2 +1,5 @@
 - Singleton: Sử dụng để đảm bảo rằng một lớp chỉ có duy nhất một instance trong suốt quá trình chạy của ứng dụng. Điều này giúp đảm bảo rằng tất cả các đối tượng khác đều sử dụng cùng một thể hiện đó, tránh được sự lãng phí tài nguyên và xung đột dữ liệu.
 
+onTap: () => phuongthuc(): Đây là một hàm vô danh (anonymous function), được tạo ra và gọi ngay khi người dùng chạm vào (tap) vào widget. Hàm này sẽ thực thi phương thức phuongthuc() khi được gọi.
+
+onTap: phuongThuc(): Đây là cách gọi trực tiếp đến phương thức phuongThuc() và không phải là một hàm vô danh. Khi widget được tạo ra, phương thức phuongThuc() sẽ được gọi một lần. Và khi người dùng chạm vào widget, sự kiện sẽ không được kích hoạt vì không có phương thức nào được truyền vào.

@@ -37,7 +37,7 @@ class AppBarContainerWidget extends StatelessWidget {
                   Row(children: [
                     if (implementLeading)
                       GestureDetector(
-                        onTap: () => Navigator.of(context).pop(),
+                        onTap: () => {Navigator.of(context).pop(context)},
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -56,7 +56,15 @@ class AppBarContainerWidget extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
-                          Text(titleString),
+                          SizedBox(
+                            height: kMediumPadding,
+                          ),
+                          Text(
+                            titleString,
+                            style: TextStyle(
+                              fontSize: 30,
+                            ),
+                          ),
                         ],
                       ),
                     ),

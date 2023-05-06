@@ -8,8 +8,6 @@ import 'package:bookinghotel/core/helpers/asset_helper.dart';
 import 'package:bookinghotel/representation/screens/main_screen.dart';
 import 'package:bookinghotel/representation/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

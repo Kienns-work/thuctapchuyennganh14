@@ -6,10 +6,12 @@ import 'package:bookinghotel/core/constants/textstyle_constants.dart';
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
-  const ButtonWidget({super.key, required this.title, required this.ontap});
+  ButtonWidget(
+      {super.key, required this.title, required this.ontap, this.color});
 
   final String title;
   final Function ontap;
+  Color? color;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,7 +21,7 @@ class ButtonWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
             vertical: kMediumPadding / 2, horizontal: kMediumPadding),
         decoration: BoxDecoration(
-          color: ColorPalette.primaryColor,
+          color: color ?? ColorPalette.primaryColor,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
